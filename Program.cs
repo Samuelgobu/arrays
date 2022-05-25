@@ -88,8 +88,74 @@ namespace arrays
                 Console.Write(array[i] + "\t");
             }
             Console.Write("\n");
-            //Geben Sie das Array von klein nach groß sortieren aus.
+            Array.Reverse(array);
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i] + "\t");
+            }
+
+            //Geben Sie das Array von klein nach groß sortiert aus.
+
+            Array.Sort(array);
+            //for (int i = 0; i < array.Length; i++)
+            //{
+            //    Console.Write(array[i] + "\t");
+            //}
+            ArrayZuKonsole(array);
+
+            //Bestimmen Sie den Mittelwert der Einträge des Array und geben Sie diesen aus.
+            Console.WriteLine("der Mittelwert von array ist = " + (Convert.ToDouble(summe) / Convert.ToDouble(array.Length)));
+
+            //TeilerListe
+            Console.WriteLine("Die Teiler einer Zahl sollen bestimmt werden");
+            Console.Write("Zahl eingeben:");
+            int zahl = Convert.ToInt32(Console.ReadLine());
+
+            
+
+
+            //Ausgbe der Teiler Liste:
+
+            ArrayZuKonsole(TeilerListeErstellen(zahl).ToArray());
+
+            
+
+
         }
+        // Schreiben sie eine Methode, die (int) Arrays in die Konsole ausgibt.
+        
+        static void ArrayZuKonsole(int[] intArray)
+        {
+            Console.WriteLine("\n");
+            for (int i = 0; i < intArray.Length; i++)
+            {
+                Console.Write(intArray[i] + "\t");
+            }
+            Console.WriteLine("\n");
+
+
+            
+        }
+
+        //Schreiben Sie eine Methode, die eine ganze Zahl entgegen nimmt, die Teiler dieser Zahl bestimmt und diese in einer Liste zuzück gibt
+
+        static List<int> TeilerListeErstellen(int zahl)
+        {
+            List<int> Teiler = new List<int>(); //Teiler.Add(..) hinzufügen von Elementen
+            for (int i = 1; i <= zahl; i++)
+            {
+                if (zahl % i == 0)
+                {
+                    Teiler.Add(i);
+                }
+                
+            }
+            
+
+            return Teiler;
+        }
+
     } 
+
 }
 
